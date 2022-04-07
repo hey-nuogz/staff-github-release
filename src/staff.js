@@ -21,7 +21,7 @@ const staff = async hey => {
 
 			const { data: releases } = await Axios.get(url, { responseType: 'json', httpsAgent: proxy });
 
-			const release = releases.sort((a, b) => b.id - a.id).find(rel => channel == 'pre' ? true : !rel.prerelease);
+			const release = releases.find(rel => channel == 'pre' ? true : !rel.prerelease);
 			const tag = release.tag_name ?? release.name;
 
 
